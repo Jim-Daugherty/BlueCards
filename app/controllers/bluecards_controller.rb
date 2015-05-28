@@ -1,0 +1,2 @@
+class BluecardsController < ApplicationController
+end
