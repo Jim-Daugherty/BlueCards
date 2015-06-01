@@ -1,0 +1,124 @@
+<h1>Bluecards</h1>
+<%= form_for :bluecard, url: bluecards_path do |f| %>
+      <table>
+        <tr>
+          <td><%= f.label :unit %></td>
+          <td><%= f.label :district %></td>
+          <td><%= f.label :council %></td>
+        </tr>
+        <tr>
+          <td><%= f.text_field :unit, :value => @currentuser.unit_number %></td>
+          <td><%= f.text_field :district, :value => @currentuser.district %></td>
+          <td><%= f.text_field :council, :value => @currentuser.council %></td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.label :badge_name %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.text_field :badge_name %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <%= f.label :applicant_name %>
+          </td>
+          <td>
+            <%= f.label :applicant_address %>
+          </td>
+          <td>
+            <%= f.label :applicant_city %>
+          </td>
+          <td>
+            <%= f.label :applicant_scouttype %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.text_field :applicant_name %>
+          </td>
+          <td>
+            <%= f.text_field :applicant_address %>
+          </td>
+          <td>
+            <%= f.text_field :applicant_city %>
+          </td>
+          <td>
+            <%= f.select :applicant_scouttype, options_for_select(%w[Scout Varisty Venture])  %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <%= f.label :counselor_name %>
+          </td>
+          <td>
+            <%= f.label :counselor_address %>
+          </td>
+          <td>
+            <%= f.label :counselor_city %>
+          </td>
+          <td>
+            <%= f.label :counselor_state %>
+          </td>
+          <td>
+            <%= f.label :counselor_zipcode %>
+          </td>
+          <td>
+            <%= f.label :counselor_telephone %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.text_field :counselor_name %>
+          </td>
+          <td>
+            <%= f.text_field :counselor_address %>
+          </td>
+          <td>
+            <%= f.text_field :counselor_city %>
+          </td>
+          <td>
+            <%= f.text_field :counselor_state %>
+          </td>
+          <td>
+            <%= f.text_field :counselor_zipcode %>
+          </td>
+          <td>
+            <%= f.text_field :counselor_telephone %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <%= f.submit %>
+          </td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td><a href="http:\\www.trooptrack.com">Select All</a><br><a href="http:\\www.trooptrack.com">Select None</a></td>
+          <td>
+            <%= f.label :applicant_name %>
+          </td>
+          <td>
+            <%= f.label :counselor_name %>
+          </td>
+          <td>
+            <%= f.label :badge_name %>
+          </td>
+        </tr>
+        <% @bluecards.each do |bluecard| %>
+            <tr>
+              <td><input type="checkbox" checked="1"></td>
+              <td><%= bluecard.applicant_name %></td>
+              <td><%= bluecard.counselor_name %></td>
+              <td><%= bluecard.badge_name %></td>
+              <td><a href="http:\\www.trooptrack.com">Edit</a>   <a href="http:\\www.trooptrack.com">Delete</a></td>
+            </tr>
+        <% end %>
+      </table>
+    </div>
+<% end %>
