@@ -1,15 +1,11 @@
 class BluecardsController < ApplicationController
   def index
-    @bluecards = @user.blue_cards
+
   end
 
   def new
     @bluecards = BlueCard.where(user_id:current_user.id)
     @currentuser = current_user
-  end
-
-  def show
-
   end
 
   def create
