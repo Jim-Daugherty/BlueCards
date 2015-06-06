@@ -1,6 +1,6 @@
 class BluecardsController < ApplicationController
   def index
-    @bluecards = @user.blue_cards
+    render plain: params[:article].inspect
   end
 
   def new
@@ -8,8 +8,19 @@ class BluecardsController < ApplicationController
     @currentuser = current_user
   end
 
+  def order
+    render plain: params[:article].inspect
+  end
+
   def show
 
+  end
+
+  def destroy
+    @bluecard = BlueCard.find(params[:id])
+    @bluecard.destroy
+
+    redirect_to :back
   end
 
   def create
