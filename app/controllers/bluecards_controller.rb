@@ -17,6 +17,7 @@ class BluecardsController < ApplicationController
   end
 
   def destroy
+    #make a change so it will save to repository
     @bluecard = BlueCard.find(params[:id])
     @bluecard.destroy
 
