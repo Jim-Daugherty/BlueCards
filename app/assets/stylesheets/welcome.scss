@@ -1,3 +1,36 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+
+  .bluebox {
+
+    background-color: #165F90;
+    height: 40%;
+    width: 100%;
+    color: white;
+    margin: auto;
+    font-size: 50px;
+    text-align: center;
+
+  }
+
+  .bannerbox {
+
+    height: 50%;
+    width: 60%;
+    margin: auto;
+
+  }
+
+  .footer {
+
+    background-color: #313131;
+    height: 5%;
+    width: 100%;
+    margin: auto;
+    color: white;
+    text-align: center;
+
+  }
+}
