@@ -1,6 +1,8 @@
 class BluecardsController < ApplicationController
-  def index
+  before_filter :authenticate_user!
 
+  def index
+    render plain: params[:article].inspect
   end
 
   def new
@@ -14,6 +16,13 @@ class BluecardsController < ApplicationController
     @bluecard.user_id = current_user.id
     @bluecard.save
     redirect_to  :back
+  end
+
+  def destroy
+    @bluecard = BlueCard.find(params[:id])
+    @bluecard.destroy
+
+    redirect_to :back
   end
 
   def bluecard_params
