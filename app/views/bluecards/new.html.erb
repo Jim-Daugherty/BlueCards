@@ -1,5 +1,7 @@
-<h1>Bluecards</h1>
-<%= form_for :bluecard, url: bluecards_path do |f| %>
+<div class="bluebox">
+  Blue-Card Creation
+</div>
+  <%= form_for :bluecard, url: bluecards_path do |f| %>
       <table>
         <tr>
           <td><%= f.label :unit %></td>
@@ -93,7 +95,7 @@
         </tr>
         <tr>
           <td>
-          <%= f.submit %>
+          <%= f.submit class: 'button' %>
           </td>
         </tr>
       </table>

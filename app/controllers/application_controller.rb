@@ -1,18 +1,18 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+
   protect_from_forgery with: :exception
   helper_method :current_order
 
-def current_order
-  if !session[:order_id].nil?
-    Order.find(session[:order_id])
-  else
-    Order.new
+  def current_order
+    if !session[:order_id].nil?
+      Order.find(session[:order_id])
+    else
+      Order.new
+    end
   end
-end
-
-  before_filter :configure_permitted_parameters, if: :devise_controller?
 
   protected
 
