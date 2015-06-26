@@ -5,13 +5,17 @@ class BluecardsController < ApplicationController
     render plain: params[:article].inspect
   end
 
+  def show
+    @bluecards = BlueCard.all
+    @bluecards = BlueCard.order(params[:sort]) 
+  end
+
   def new
     @bluecards = BlueCard.where(user_id:current_user.id)
     @currentuser = current_user
   end
 
   def create
-
     @bluecard = BlueCard.new(bluecard_params)
     @bluecard.user_id = current_user.id
     @bluecard.save

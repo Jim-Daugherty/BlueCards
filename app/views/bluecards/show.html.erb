@@ -1,0 +1,32 @@
+<div class="bluebox">
+  Your Bluecards
+</div>
+<%= form_for :bluecard, url: bluecards_path do |f| %>
+
+  <table>
+    <tr>
+      <td><a href="http:\\www.trooptrack.com">Select All</a><br><a href="http:\\www.trooptrack.com">Select None</a></td>
+      <td>
+        <%= f.label :applicant_name %><%= link_to image_tag("sort.png"), :sort => "applicant_name" %>
+      </td>
+      <td>
+        <%= f.label :counselor_name %><%= link_to image_tag("sort.png"), :sort => "counselor_name" %>
+      </td>
+      <td>
+        <%= f.label :badge_name %><%= link_to image_tag("sort.png"), :sort => "badge_name" %>
+      </td>
+    </tr>
+    <% @bluecards.each do |bluecard| %>
+        <tr>
+          <td><input type="checkbox" checked="1"></td>
+          <td><%= bluecard.applicant_name %></td>
+          <td><%= bluecard.counselor_name %></td>
+          <td><%= bluecard.badge_name %></td>
+          <td><a href="http:\\www.trooptrack.com">Edit</a> |
+            <%= link_to 'Delete', bluecards_path(@bluecard), :confirm => 'Are you sure you want to delete this entry?', :method => :delete %></td>
+        </tr>
+    <% end %>
+  </table>
+  </div>
+
+<% end %>
